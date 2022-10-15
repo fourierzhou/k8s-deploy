@@ -1,0 +1,13 @@
+apiVersion: {{ .Values.apiVersion }}
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.nameSpace }}
+spec:
+  selector:
+    app: {{ .Values.name }}
+    release: canary
+  ports:
+  - name: http
+    targetPort: {{ .Values.service.targetPort }}
+    port: {{ .Values.service.port }}
